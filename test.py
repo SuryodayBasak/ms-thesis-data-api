@@ -1,6 +1,6 @@
 import data_api as da
 
-audit = da.BurstHeaderPacket()
+audit = da.CardioOtgFetal()
 X, y = audit.Data()
 print(X, y)
 

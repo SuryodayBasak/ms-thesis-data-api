@@ -183,3 +183,36 @@ class BurstHeaderPacket:
 """
 Dataset 11:
 """
+class CSection:
+  def __init__(self):
+    self.dataset = np.genfromtxt('data/c_section/caesarian.csv', \
+                                 delimiter = ',')
+
+  def Data(self):
+    print(self.dataset)
+    return self.dataset[:, :-1], self.dataset[:, -1]
+
+"""
+Dataset 12: Cardiooctography -- morphology.
+"""
+class CardioOtgMorph:
+  def __init__(self):
+    self.dataset = np.genfromtxt('data/cardioctography/ctg.csv', \
+                                 delimiter = ',')
+
+  def Data(self):
+    print(self.dataset)
+    return self.dataset[:, :-2], self.dataset[:, -2]
+
+"""
+Dataset 13: Cardiooctography -- fetal.
+"""
+class CardioOtgFetal:
+  def __init__(self):
+    self.dataset = np.genfromtxt('data/cardioctography/ctg.csv', \
+                                 delimiter = ',')
+
+  def Data(self):
+    print(self.dataset)
+    return self.dataset[:, :-2], self.dataset[:, -1]
+
