@@ -189,7 +189,6 @@ class CSection:
                                  delimiter = ',')
 
   def Data(self):
-    print(self.dataset)
     return self.dataset[:, :-1], self.dataset[:, -1]
 
 """
@@ -201,7 +200,6 @@ class CardioOtgMorph:
                                  delimiter = ',')
 
   def Data(self):
-    print(self.dataset)
     return self.dataset[:, :-2], self.dataset[:, -2]
 
 """
@@ -213,6 +211,124 @@ class CardioOtgFetal:
                                  delimiter = ',')
 
   def Data(self):
-    print(self.dataset)
     return self.dataset[:, :-2], self.dataset[:, -1]
+
+"""
+Dataset 14: Diabetic retinopathy.
+"""
+class DiabeticRetino:
+  def __init__(self):
+    self.dataset = np.genfromtxt('data/diabetic_retinopathy/data.csv', \
+                                 delimiter = ',')
+
+  def Data(self):
+    return self.dataset[:, :-1], self.dataset[:, -1]
+
+"""
+Dataset 15: 
+"""
+class Ecoli:
+  def __init__(self):
+    self.dataset = pd.read_csv('data/ecoli/ecoli.csv')
+
+  def Data(self):
+    ecoliDataset = self.dataset.copy()
+    label = {'cp': 1, 'im': 2, 'pp': 3, 'imU': 4, 'om': 5, 'omL': 6,\
+             'imL': 7, 'imS': 8}
+    ecoliDataset = ecoliDataset.replace({'class': label})
+    ecoliDataset = ecoliDataset.to_numpy()
+    X = ecoliDataset[:, :-1]
+    y = ecoliDataset[:, -1]
+
+    return X, y
+
+"""
+Dataset 16:
+"""
+class Electrical:
+  def __init__(self):
+    self.dataset = pd.read_csv('data/electrical_grid/Data_for_UCI_named.csv')
+
+  def Data(self):
+    elDataset = self.dataset.copy()
+    label = {'stable': 1, 'unstable': 0}
+    elDataset = elDataset.replace({'stabf': label})
+    elDataset = elDataset.drop(['p1', 'stab'], axis = 1)
+    elDataset = elDataset.to_numpy()
+    X = elDataset[:, :-1]
+    y = elDataset[:, -1]
+
+    return X, y
+
+"""
+Dataset 17:
+"""
+class EEGEye:
+  def __init__(self):
+    self.dataset = np.genfromtxt('data/eeg_eye_state/eeg.csv', \
+                                 delimiter = ',')
+
+  def Data(self):
+    return self.dataset[:, :-1], self.dataset[:, -1]
+
+"""
+Dataset 16: Glass identification.
+"""
+class Glass:
+  def __init__(self):
+    self.dataset = np.genfromtxt('data/glass/glass.data', \
+                                 delimiter = ',')
+
+  def Data(self):
+    return self.dataset[:, :-1], self.dataset[:, -1]
+
+"""
+Dataset 17: Haberman.
+"""
+class Haberman:
+  def __init__(self):
+    self.dataset = np.genfromtxt('data/haberman/haberman.data', \
+                                 delimiter = ',')
+
+  def Data(self):
+    return self.dataset[:, :-1], self.dataset[:, -1]
+
+"""
+Dataset 18: HTRU2.
+"""
+class HTRU2:
+  def __init__(self):
+    self.dataset = np.genfromtxt('data/htru2/HTRU2/HTRU_2.csv', \
+                                 delimiter = ',')
+
+  def Data(self):
+    return self.dataset[:, :-1], self.dataset[:, -1]
+
+"""
+Dataset 19: ILPD.
+"""
+class ILPD:
+  def __init__(self):
+    self.dataset = pd.read_csv('data/ilpd/data.csv')
+
+  def Data(self):
+    ilpdDataset = self.dataset.copy()
+    sex = {'Female': 1, 'Male': 0}
+    ilpdDataset = ilpdDataset.replace({'sex': sex})
+    ilpdDataset = ilpdDataset.to_numpy()
+    X = ilpdDataset[:, :-1]
+    y = ilpdDataset[:, -1]
+
+    return X, y
+
+"""
+Dataset 20: Immunotherapy.
+"""
+class Immunotherapy:
+  def __init__(self):
+    self.dataset = np.genfromtxt('data/immunotherapy/data.csv', \
+                                 delimiter = ',')
+
+  def Data(self):
+    return self.dataset[:, :-1], self.dataset[:, -1]
 
